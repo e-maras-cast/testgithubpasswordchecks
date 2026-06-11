@@ -6,6 +6,8 @@
   <metric id="1020800" type="quality-rule" originalName="Avoid jump statements in finally " section="description">
     <english>Reports the code when a jump statment (break, continue, return ,throw)  would force control flow to leave a finally block. Using jump statements from a finally block suppresses the propagation of any unhandled Throwable which was thrown in the try or catch block.</english>
   </metric>
+
+  
   <metric id="1020800" type="quality-rule" originalName="Avoid jump statements in finally " section="name">
     <english>Avoid jump statements in finally </english>
   </metric>

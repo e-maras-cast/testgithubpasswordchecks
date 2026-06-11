@@ -3189,7 +3189,7 @@ export class ShowUserComponent {
   <metric id="1020928" type="quality-rule" originalName="Always unsubscribe events in Angular onDestroy method" section="total">
     <english>Number of angular components</english>
   </metric>
-  <metric id="1020932" type="quality-rule" originalName="Avoid hard-coded API keys (TypeScript)" section="description">
+   <metric id="1020932" type="quality-rule" originalName="Avoid hard-coded API keys (TypeScript)" section="description">
     <english>This quality rule detects potential hard-coded API keys in the codebase.
 
 It operates using a two-step heuristic approach. First, it analyzes variable names and object property names to identify those that are likely to store sensitive credentials (e.g., API keys, tokens, or secrets).
@@ -3258,8 +3258,8 @@ const openAiHeaders = {
 
 **`.env` file (local only — add to `.gitignore`):**
 ```
-STRIPE_SECRET_KEY=...
-OPENAI_API_KEY=...
+STRIPE_SECRET_KEY=sk_live_4eC39HqLyjWDarjtT1zdp7dc
+OPENAI_API_KEY=sk-AbCdEf123456GhIjKlMnOpQrStUvWxYz
 ```
 
 **`.gitignore`:**
@@ -3269,7 +3269,13 @@ OPENAI_API_KEY=...
 .env.production</english>
   </metric>
   <metric id="1020932" type="quality-rule" originalName="Avoid hard-coded API keys (TypeScript)" section="sample">
-    <english>const openAiHeaders = {
+    <english>import Stripe from 'stripe';
+
+const stripe = new Stripe('sk_live_4eC39HqLyjWDarjtT1zdp7dc', {  // ❌ Violation : Hard-coded API key
+  apiVersion: '2023-10-16',
+});
+
+const openAiHeaders = {
   'Authorization': 'Bearer sk-AbCdEf123456GhIjKlMnOpQrStUvWxYz',  // ❌ Violation : Hard-coded API key
   'Content-Type': 'application/json',
 };</english>
